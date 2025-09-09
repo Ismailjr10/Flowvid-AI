@@ -21,3 +21,6 @@ export default function Home() {
     </main>
   )
 }
+
+
+/*cd ~/Flowvid-AI/flowvid-ai*/

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { AuthProvider } from "@/context/AuthProvider"  // 👈 import this
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,14 +20,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Navbar at the top */}
-        <Navbar />
+        <AuthProvider>
+          {/* Navbar at the top */}
+          <Navbar />
 
-        {/* Page content with padding for fixed navbar */}
-        <main className="pt-20">{children}</main>
+          {/* Page content with padding for fixed navbar */}
+          <main className="pt-20">{children}</main>
 
-        {/* Footer at the bottom */}
-        <Footer />
+          {/* Footer at the bottom */}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   )
